@@ -1,1 +1,1 @@
-streamlit run "D:\New folder (2)\Disease-Prediction\webapp\multiple_disease_prediction.py"
+streamlit run "E:\Disease-Prediction\webapp\multiple_disease_prediction.py"
