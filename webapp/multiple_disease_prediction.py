@@ -14,13 +14,13 @@ from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('F:/python code/temporary/model/diabetes_trained_model.sav', 'rb'))
+diabetes_model = pickle.load(open('E:\Disease-Prediction\model/diabetes_trained_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open('F:/python code/temporary/model/heart_disease_model.sav','rb'))
+heart_disease_model = pickle.load(open('E:\Disease-Prediction\model/heart_disease_model.sav','rb'))
 
-parkinsons_model = pickle.load(open('F:/python code/temporary/model/parkinsons_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('E:\Disease-Prediction\model/parkinsons_model.sav', 'rb'))
 
-lung_cancer_model = pickle.load(open('F:/python code/temporary/model/lungCancer_trained_model.sav', 'rb'))
+lung_cancer_model = pickle.load(open('E:\Disease-Prediction\model/lungCancer_trained_model.sav', 'rb'))
 
 # Security
 #passlib,hashlib,bcrypt,scrypt
