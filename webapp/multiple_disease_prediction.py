@@ -4,7 +4,7 @@ import pickle
 from streamlit_option_menu import option_menu
 
 import json
-
+from PIL import Image
 import requests  # pip install requests
 import streamlit as st  # pip install streamlit
 from streamlit_lottie import st_lottie  # pip install streamlit-lottie
@@ -14,13 +14,13 @@ from streamlit_lottie import st_lottie  # pip install streamlit-lottie
 
 # loading the saved models
 
-diabetes_model = pickle.load(open('E:\Disease-Prediction\model/diabetes_trained_model.sav', 'rb'))
+diabetes_model = pickle.load(open('F:/python code/temporary/model/diabetes_trained_model.sav', 'rb'))
 
-heart_disease_model = pickle.load(open('E:\Disease-Prediction\model/heart_disease_model.sav','rb'))
+heart_disease_model = pickle.load(open('F:/python code/temporary/model/heart_disease_model.sav','rb'))
 
-parkinsons_model = pickle.load(open('E:\Disease-Prediction\model/parkinsons_model.sav', 'rb'))
+parkinsons_model = pickle.load(open('F:/python code/temporary/model/parkinsons_model.sav', 'rb'))
 
-lung_cancer_model = pickle.load(open('E:\Disease-Prediction\model/lungCancer_trained_model.sav', 'rb'))
+lung_cancer_model = pickle.load(open('F:/python code/temporary/model/lungCancer_trained_model.sav', 'rb'))
 
 # Security
 #passlib,hashlib,bcrypt,scrypt
@@ -129,7 +129,32 @@ def main():
 
     elif choice == "Login":
         st.subheader("Login Section")
-
+        def load_lottiefile(filepath: str):
+            with open(filepath, "r") as f:
+                return json.load(f)
+        
+        
+        def load_lottieurl(url: str):
+            r = requests.get(url)
+            if r.status_code != 200:
+                return None
+            return r.json()
+            
+        
+        #lottie_coding = load_lottiefile("lottiefile.json")  # replace link to local lottie file
+        lottie_hello = load_lottieurl("https://assets4.lottiefiles.com/packages/lf20_ktwnwv5m.json")
+        
+        
+        st_lottie(
+            lottie_hello,
+            speed=1,
+            reverse=False,
+            loop=True,
+            quality="low",
+            height=400,
+            width=700,
+            key=None,
+        )
         username = st.sidebar.text_input("User Name")
         password = st.sidebar.text_input("Password",type='password')
         if st.sidebar.checkbox("Login"):
@@ -155,8 +180,10 @@ def main():
                 if (selected == 'Diabetes Prediction'):
                     
                     # page title
-                    st.title('Diabetes Prediction using ML')
                     
+                    img = Image.open("F:/python code/temporary/image/1.webp")
+                    st.image(img)
+                    st.title('Diabetes Prediction using ML')
                     # getting the input data from the user
                     col1, col2, col3 = st.columns(3)
                     
@@ -205,7 +232,8 @@ def main():
 
                 # Heart Disease Prediction Page
                 if (selected == 'Heart Disease Prediction'):
-                    
+                    img = Image.open("F:/python code/temporary/image/2.jpg")
+                    st.image(img)
                     # page title
                     st.title('Heart Disease Prediction using ML')
                     
@@ -279,7 +307,8 @@ def main():
 
                 # parkinsons Prediction Page
                 if (selected == 'Parkinsons Prediction'):
-                    
+                    img = Image.open("F:/python code/temporary/image/3.webp")
+                    st.image(img)
                     # page title
                     st.title('Parkinsons Prediction using ML')
                     col1, col2, col3, col4, col5 = st.columns(5)  
@@ -370,7 +399,8 @@ def main():
 
                 # lung cancer Prediction Page
                 if (selected == 'Lung Cancer Prediction'):
-                    
+                    img = Image.open("F:/python code/temporary/image/4.webp")
+                    st.image(img)
                     # page title
                     st.title('Lung Cancer Prediction using ML') 
                     st.markdown('Yes = 2 And No = 1')
@@ -435,6 +465,8 @@ def main():
                         
                     st.success(lung_cancer_diagnosis)
                 elif selected == "Profiles":
+                    img = Image.open("F:/python code/temporary/image/5.png")
+                    st.image(img)
                     st.subheader("User Profiles")
                     user_result = view_all_users()
                     clean_db = pd.DataFrame(user_result,columns=["Username","Password"])
