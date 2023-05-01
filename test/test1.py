@@ -27,7 +27,7 @@ driver.get('http://192.168.31.220:8501')
 
 time.sleep(5)
 
-# Test Case 1
+# Test Case 01
 try:
     report.write_step(
     'Go to Landing Page',
@@ -55,7 +55,7 @@ except Exception as e:
 )
 
 
-# Test Case 2
+# Test Case 02
 try:
     report.write_step(
         'Signup for a user',
@@ -112,7 +112,7 @@ except Exception as e:
         screenshot=True
     )
 
-# Test Case 3
+# Test Case 03
 try:
     report.write_step(
     'Login for a user',
@@ -144,7 +144,7 @@ except Exception as e:
     screenshot=True
     )
 
-# Test Case 4
+# Test Case 04
 try:
     report.write_step(
     ' Diabetes Prediction ',
@@ -173,7 +173,7 @@ except Exception as e:
     screenshot=True
     )
 
-# Test Case 5
+# Test Case 05
 try:
     report.write_step(
     '  Heart Disease Prediction ',
@@ -202,7 +202,7 @@ except Exception as e:
     screenshot=True
     )
 
-# Test Case 6
+# Test Case 06
 try:
     report.write_step(
     '  Parkinsons Prediction ',
@@ -231,7 +231,7 @@ except Exception as e:
     screenshot=True
     )
 
-# Test Case 7
+# Test Case 07
 try:
     report.write_step(
     '  Lung Cancer Prediction ',
@@ -260,7 +260,7 @@ except Exception as e:
     screenshot=True
     )
 
-# Test Case 8
+# Test Case 08
 try:
     report.write_step(
     ' profile ',
