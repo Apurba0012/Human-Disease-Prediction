@@ -57,7 +57,10 @@ def view_all_users():
     data = c.fetchall()
     return data
 
-
+def view_user_data(username):
+    c.execute('SELECT * FROM userstable WHERE username = ?', (username,))
+    data = c.fetchall()
+    return data
 
 def main():
     """Simple Login App"""
@@ -468,7 +471,8 @@ def main():
                     img = Image.open("F:/python code/temporary/image/5.png")
                     st.image(img)
                     st.subheader("User Profiles")
-                    user_result = view_all_users()
+                    #user_result = view_all_users()
+                    user_result = view_user_data(username)
                     clean_db = pd.DataFrame(user_result,columns=["Username","Password"])
                     st.dataframe(clean_db)
             else:

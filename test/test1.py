@@ -64,30 +64,14 @@ try:
     )
 
         # Wait for the element to be present in the DOM
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, '/html/body/div/div/div/div/div/ul/li[3]/a'))
-    )
 
-    # Click on the element
-    element.click()
+    driver.find_element(By.XPATH, '/html/body/div/div/div/div/div/ul/li[3]/a').click()
 
-    # Wait for the elements to be present in the DOM
-    username = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.NAME, 'Username'))
-    )
-    password = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.ID, 'Password'))
-    )
-
-    # Enter the username and password
-    username.send_keys('apu')
-    password.send_keys('123')
+    driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/section[2]/div[1]/div[1]/div/div[3]/div/div[1]/div/input').send_keys('apu')
+    driver.find_element(By.XPATH,'/html/body/div[1]/div[1]/div[1]/div/div/div/section[2]/div[1]/div[1]/div/div[4]/div/div[1]/div/input').send_keys('123')
 
     # Click on the button
-    button = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located(
-            (By.XPATH, '/html/body/div/div[1]/div[1]/div/div/div/section[2]/div[1]/div[1]/div/div[5]/div/button'))
-    )
+    button = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, '/html/body/div/div[1]/div[1]/div/div/div/section[2]/div[1]/div[1]/div/div[5]/div/button')))
     button.click()
 
 
@@ -119,16 +103,11 @@ try:
     status=report.status.Start,
     test_number=3
     )
-    element = WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/ul/li[2]/a"))
-    )
+    driver.find_element(By.XPATH, '/html/body/div/div/div/div/div/ul/li[2]/a').click()
 
-    # Click on the element
-    element.click()
-    driver.find_element(By.NAME, 'Username').send_keys('aa')
-    time.sleep(1)
-    driver.find_element(By.ID, 'Password').send_keys('123')
-    time.sleep(1)
+    driver.find_element(By.XPATH,'/html/body/div/div[1]/div[1]/div/div/div/section[1]/div[1]/div[2]/div/div[1]/div/div[2]/div/div[1]/div/input').send_keys('aa')
+    driver.find_element(By.XPATH,'/html/body/div/div[1]/div[1]/div/div/div/section[1]/div[1]/div[2]/div/div[1]/div/div[3]/div/div[1]/div/input').send_keys('123')
+
     driver.find_element(By.XPATH, '/html/body/div/div[1]/div[1]/div/div/div/section[1]/div[1]/div[2]/div/div[1]/div/div[4]/div/label/input').click()
 
     report.write_step(
@@ -245,8 +224,7 @@ try:
     test_number=7
     )
 
-    driver.find_element(By.XPATH,
-    '/html/body/div/div/div/div/div/ul/li[4]/a').click()
+    driver.find_element(By.XPATH,'/html/body/div/div/div/div/div/ul/li[4]/a').click()
 
     report.write_step(
     'Successfully ',
