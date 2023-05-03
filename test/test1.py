@@ -119,6 +119,12 @@ try:
     status=report.status.Start,
     test_number=3
     )
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div/div/div/div/div/ul/li[2]/a"))
+    )
+
+    # Click on the element
+    element.click()
     driver.find_element(By.NAME, 'Username').send_keys('aa')
     time.sleep(1)
     driver.find_element(By.ID, 'Password').send_keys('123')
