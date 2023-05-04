@@ -22,6 +22,11 @@ parkinsons_model = pickle.load(open('F:/python code/temporary/model/parkinsons_m
 
 lung_cancer_model = pickle.load(open('F:/python code/temporary/model/lungCancer_trained_model.sav', 'rb'))
 
+
+
+
+
+
 # Security
 #passlib,hashlib,bcrypt,scrypt
 import hashlib
@@ -292,14 +297,16 @@ def main():
                     if st.button('Heart Disease Test Result'):
                         # convert input data to float
                         #input_data = [float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]
-                        #heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
+                        heart_prediction = heart_disease_model.predict([[age, sex, cp, trestbps, chol, fbs, restecg,thalach,exang,oldpeak,slope,ca,thal]])                          
                         
                         # make prediction using model
-                        heart_prediction = heart_disease_model.predict_proba([[float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]])
+                        #heart_prediction = heart_disease_model.predict_proba([[float(age), float(sex), float(cp), float(trestbps), float(chol), float(fbs), float(restecg), float(thalach), float(exang), float(oldpeak), float(slope), float(ca), float(thal)]])
                         
                         #heart_prediction is equal to 1. You can use the any() method for this. 
                         
-                        if (heart_prediction.any()):  #
+                        
+                        
+                        if(heart_prediction[0] == 1):  
                           heart_diagnosis = 'The person is having heart disease'
                         else:
                           heart_diagnosis = 'The person does not have any heart disease'
