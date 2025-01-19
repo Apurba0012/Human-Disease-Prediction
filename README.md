@@ -63,7 +63,7 @@ The machine learning models were trained using the following datasets from Kaggl
     pip install streamlit pandas pickle streamlit-option-menu pillow requests streamlit-lottie
 5.  **Run the Streamlit App:**
     ```bash
-    streamlit run your_main_script_name.py # Replace your_main_script_name.py with the name of your main python file. Usually app.py or main.py.
+    streamlit run multiple_disease_prediction.py # Replace your_main_script_name.py with the name of your main python file. Usually app.py or main.py.
     ```
 
 ## Screenshots
